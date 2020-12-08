@@ -4,7 +4,7 @@ let predictions = [];
 
 let model;
 let targetLabel;
-let state = 'collection';
+let state = 'prediction';
 // let state = 'prediction';
 
 let socket;
@@ -108,6 +108,7 @@ function gotResults(error, results) {
   }
   console.log(`${results[0].label}: ${results[0].confidence}`); // print label & confidence
   nnResults = results;
+  sendToServer();
   classify();
 }
 
