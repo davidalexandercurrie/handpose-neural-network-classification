@@ -7,6 +7,8 @@ let targetLabel;
 let state = 'collection';
 // let state = 'prediction';
 
+let socket;
+
 let nnResults;
 let loopBroken = false;
 
@@ -14,6 +16,8 @@ function setup() {
   createCanvas(640, 480);
   video = createCapture(VIDEO);
   video.size(width, height);
+
+  socket = io.connect();
 
   handpose = ml5.handpose(video, modelReady);
   // This sets up an event that fills the global variable "predictions"
@@ -159,3 +163,7 @@ function restartPredictions() {
     classify();
   }
 }
+
+const sendToServer = () => {
+  socket.emit('handpose', nnResults);
+};
