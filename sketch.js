@@ -38,9 +38,6 @@ function setup() {
 
   // Hide the video element, and just show the canvas
   video.hide();
-
-  createButton('Load Model').mousePressed(onLoadModelClick);
-  createButton('Start Prediction').mousePressed(onPredictClick);
 }
 
 function autoStartPredict() {
@@ -106,7 +103,7 @@ function gotResults(error, results) {
     console.error(error);
     return;
   }
-  console.log(`${results[0].label}: ${results[0].confidence}`); // print label & confidence
+  // console.log(`${results[0].label}: ${results[0].confidence}`); // print label & confidence
   nnResults = results;
   sendToServer();
   classify();
