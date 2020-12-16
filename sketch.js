@@ -4,8 +4,8 @@ let predictions = [];
 
 let model;
 let targetLabel;
-let state = 'collection';
-// let state = 'prediction';
+// let state = 'collection';
+let state = 'prediction';
 
 let socket;
 
@@ -34,7 +34,7 @@ function setup() {
   };
 
   model = ml5.neuralNetwork(options);
-  // autoStartPredict();
+  autoStartPredict();
 
   // Hide the video element, and just show the canvas
   video.hide();
