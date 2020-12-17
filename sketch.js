@@ -35,7 +35,8 @@ function setup() {
 
   model = ml5.neuralNetwork(options);
   autoStartPredict();
-
+  createButton('Load Model').mousePressed(onLoadModelClick);
+  createButton('Start Prediction').mousePressed(onPredictClick);
   // Hide the video element, and just show the canvas
   video.hide();
 }
