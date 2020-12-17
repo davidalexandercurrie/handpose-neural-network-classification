@@ -10,7 +10,7 @@ let state = 'prediction';
 let socket;
 
 let nnResults;
-let loopBroken = false;
+let loopBroken = true;
 
 function setup() {
   createCanvas(640, 480);
